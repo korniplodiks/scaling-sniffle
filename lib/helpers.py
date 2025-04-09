@@ -1,117 +1,21 @@
-# Helper functions
+"""
+Scaling Sniffle - Bug Fix
+"""
 
-def helper_function_2(x):
-    """Helper function for iteration 2."""
-    return x * 2
+def safe_divide(a, b):
+    """Safely divide two numbers with error handling"""
+    if b == 0:
+        raise ValueError("Division by zero is not allowed")
+    return a / b
 
-def format_output(data):
-    """Format output data."""
-    return str(data).upper()
-
-def sanitize_input(input_str):
-    """Sanitize user input."""
-    if not isinstance(input_str, str):
-        return str(input_str)
-    return input_str.strip().replace("\n", "").replace("\r", "")
-
-
-# Helper functions
-
-def helper_function_17(x):
-    """Helper function for iteration 17."""
-    return x * 17
-
-def format_output(data):
-    """Format output data."""
-    return str(data).upper()
-
-def sanitize_input(input_str):
-    """Sanitize user input."""
-    if not isinstance(input_str, str):
-        return str(input_str)
-    return input_str.strip().replace("\n", "").replace("\r", "")
-
-
-# Helper functions
-
-def helper_function_23(x):
-    """Helper function for iteration 23."""
-    return x * 23
-
-def format_output(data):
-    """Format output data."""
-    return str(data).upper()
-
-def sanitize_input(input_str):
-    """Sanitize user input."""
-    if not isinstance(input_str, str):
-        return str(input_str)
-    return input_str.strip().replace("\n", "").replace("\r", "")
-
-
-# Helper functions
-
-def helper_function_34(x):
-    """Helper function for iteration 34."""
-    return x * 34
-
-def format_output(data):
-    """Format output data."""
-    return str(data).upper()
-
-def sanitize_input(input_str):
-    """Sanitize user input."""
-    if not isinstance(input_str, str):
-        return str(input_str)
-    return input_str.strip().replace("\n", "").replace("\r", "")
-
-
-# Helper functions
-
-def helper_function_37(x):
-    """Helper function for iteration 37."""
-    return x * 37
-
-def format_output(data):
-    """Format output data."""
-    return str(data).upper()
-
-def sanitize_input(input_str):
-    """Sanitize user input."""
-    if not isinstance(input_str, str):
-        return str(input_str)
-    return input_str.strip().replace("\n", "").replace("\r", "")
-
-
-# Helper functions
-
-def helper_function_47(x):
-    """Helper function for iteration 47."""
-    return x * 47
-
-def format_output(data):
-    """Format output data."""
-    return str(data).upper()
-
-def sanitize_input(input_str):
-    """Sanitize user input."""
-    if not isinstance(input_str, str):
-        return str(input_str)
-    return input_str.strip().replace("\n", "").replace("\r", "")
-
-
-# Helper functions
-
-def helper_function_49(x):
-    """Helper function for iteration 49."""
-    return x * 49
-
-def format_output(data):
-    """Format output data."""
-    return str(data).upper()
-
-def sanitize_input(input_str):
-    """Sanitize user input."""
-    if not isinstance(input_str, str):
-        return str(input_str)
-    return input_str.strip().replace("\n", "").replace("\r", "")
+def parse_config(config_str):
+    """Parse configuration string with improved error handling"""
+    if not config_str:
+        return {}
+    
+    try:
+        import json
+        return json.loads(config_str)
+    except json.JSONDecodeError as e:
+        print(f"Warning: Invalid JSON config: {e}")
+        return {}
