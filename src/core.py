@@ -1,118 +1,21 @@
-# Core module for SniffleMonitor
+"""
+Scaling Sniffle - Bug Fix
+"""
 
-class Core:
-    """Main core class."""
-    def __init__(self):
-        self.initialized = True
-        self.version = "1.0.5"
-        self.config = {}
+def safe_divide(a, b):
+    """Safely divide two numbers with error handling"""
+    if b == 0:
+        raise ValueError("Division by zero is not allowed")
+    return a / b
+
+def parse_config(config_str):
+    """Parse configuration string with improved error handling"""
+    if not config_str:
+        return {}
     
-    def initialize(self):
-        """Initialize the core system."""
-        self.config['initialized'] = True
-        return True
-    
-    def get_status(self):
-        """Get system status."""
-        return {
-            "status": "running",
-            "version": self.version,
-            "uptime": "active"
-        }
-    
-    def shutdown(self):
-        """Shutdown the system."""
-        self.initialized = False
-        return True
-
-# Update 5
-
-
-# Core module for SniffleMonitor
-
-class Core:
-    """Main core class."""
-    def __init__(self):
-        self.initialized = True
-        self.version = "1.0.7"
-        self.config = {}
-    
-    def initialize(self):
-        """Initialize the core system."""
-        self.config['initialized'] = True
-        return True
-    
-    def get_status(self):
-        """Get system status."""
-        return {
-            "status": "running",
-            "version": self.version,
-            "uptime": "active"
-        }
-    
-    def shutdown(self):
-        """Shutdown the system."""
-        self.initialized = False
-        return True
-
-# Update 7
-
-
-# Core module for SniffleMonitor
-
-class Core:
-    """Main core class."""
-    def __init__(self):
-        self.initialized = True
-        self.version = "1.0.32"
-        self.config = {}
-    
-    def initialize(self):
-        """Initialize the core system."""
-        self.config['initialized'] = True
-        return True
-    
-    def get_status(self):
-        """Get system status."""
-        return {
-            "status": "running",
-            "version": self.version,
-            "uptime": "active"
-        }
-    
-    def shutdown(self):
-        """Shutdown the system."""
-        self.initialized = False
-        return True
-
-# Update 32
-
-
-# Core module for SniffleMonitor
-
-class Core:
-    """Main core class."""
-    def __init__(self):
-        self.initialized = True
-        self.version = "1.0.35"
-        self.config = {}
-    
-    def initialize(self):
-        """Initialize the core system."""
-        self.config['initialized'] = True
-        return True
-    
-    def get_status(self):
-        """Get system status."""
-        return {
-            "status": "running",
-            "version": self.version,
-            "uptime": "active"
-        }
-    
-    def shutdown(self):
-        """Shutdown the system."""
-        self.initialized = False
-        return True
-
-# Update 35
+    try:
+        import json
+        return json.loads(config_str)
+    except json.JSONDecodeError as e:
+        print(f"Warning: Invalid JSON config: {e}")
+        return {}
